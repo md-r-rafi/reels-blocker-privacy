@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
+  <title>Privacy Policy — Reels Blocker</title>
+  <meta name="description" content="Privacy policy for Reels Blocker, a digital-wellbeing Android app that blocks short-form video content. Zero data collection, on-device processing." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234F46E5'%3E%3Cpath d='M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 16l-4-4 1.41-1.41L11 14.17l5.59-5.59L18 10l-7 7z'/%3E%3C/svg%3E" />
+
+  <style>
+    /* ─── Design tokens (mirrors app constants/colors.ts) ─── */
+    :root {
+      --primary: #818CF8;
+      --primary-light: #A5B4FC;
+      --primary-subtle: #1E1B4B;
+      --primary-container: #3730A3;
+      --accent: #A78BFA;
+      --accent-light: #2E1065;
+
+      --success: #4ADE80;
+      --success-light: #14532D;
+      --warning: #FCD34D;
+
+      --bg: #0B0B18;
+      --surface: #111127;
+      --surface-secondary: #161630;
+      --surface-container: #1C1C3A;
+      --card: #181835;
+
+      --border: #2D2D5C;
+      --border-light: #232347;
+
+      --text: #F0F0FF;
+      --text-secondary: #C4C4E8;
+      --text-muted: #8888B0;
+
+      --shadow-card: 0 12px 40px -8px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--border-light);
+      --shadow-primary: 0 8px 24px -4px rgba(129, 140, 248, 0.35);
+
+      --radius-sm: 10px;
+      --radius-md: 14px;
+      --radius-lg: 18px;
+      --radius-xl: 22px;
+      --radius-2xl: 28px;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --primary: #4F46E5;
+        --primary-light: #6366F1;
+        --primary-subtle: #EEF2FF;
+        --primary-container: #4338CA;
+        --accent: #8B5CF6;
+        --accent-light: #EDE9FE;
+
+        --success: #16A34A;
+        --success-light: #DCFCE7;
+        --warning: #D97706;
+
+        --bg: #F5F5FF;
+        --surface: #FFFFFF;
+        --surface-secondary: #F0F0FD;
+        --surface-container: #E8E8F8;
+        --card: #FFFFFF;
+
+        --border: #C7C7E8;
+        --border-light: #E0E0F5;
+
+        --text: #0F0F1A;
+        --text-secondary: #3B3B5C;
+        --text-muted: #6B6B8A;
+
+        --shadow-card: 0 6px 24px -4px rgba(15, 15, 26, 0.08), 0 0 0 1px var(--border-light);
+        --shadow-primary: 0 6px 16px -2px rgba(79, 70, 229, 0.25);
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.625;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      padding-bottom: 80px;
+    }
+
+    /* Subtle ambient glow behind the hero */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 400px;
+      background: radial-gradient(ellipse at center, var(--primary) 0%, transparent 70%);
+      opacity: 0.12;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── Header ─── */
+    .app-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 32px 0 24px;
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 48px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-primary);
+    }
+
+    .logo-mark svg {
+      width: 20px;
+      height: 20px;
+      color: #fff;
+    }
+
+    .brand-name {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      color: var(--text);
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface-container);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.2px;
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      padding: 24px 0 48px;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--primary-light);
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 6vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .hero .meta {
+      font-size: 14px;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+    }
+
+    .hero .meta span strong {
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    /* ─── Summary callout ─── */
+    .summary {
+      background: linear-gradient(135deg, var(--primary-subtle) 0%, var(--accent-light) 100%);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-xl);
+      padding: 24px 28px;
+      margin: 0 0 56px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .summary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--primary);
+    }
+
+    .summary-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary-light);
+      margin-bottom: 10px;
+    }
+
+    .summary-label svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .summary p {
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .summary strong {
+      color: var(--primary-light);
+      font-weight: 700;
+    }
+
+    /* ─── Section ─── */
+    section {
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      line-height: 1.25;
+      color: var(--text);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h2 .section-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--primary-subtle);
+      color: var(--primary-light);
+      font-size: 13px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      flex-shrink: 0;
+    }
+
+    h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      margin: 24px 0 10px;
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
+
+    p strong, li strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    a {
+      color: var(--primary-light);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s ease;
+    }
+
+    a:hover {
+      border-bottom-color: var(--primary-light);
+    }
+
+    /* ─── Card ─── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      box-shadow: var(--shadow-card);
+      margin: 16px 0;
+    }
+
+    /* ─── Table (responsive) ─── */
+    .data-table {
+      background: var(--card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin: 20px 0;
+      box-shadow: var(--shadow-card);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 14px 18px;
+      text-align: left;
+      font-size: 14px;
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    th {
+      background: var(--surface-secondary);
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    td { color: var(--text-secondary); }
+    td:first-child {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ─── Lists ─── */
+    ul {
+      list-style: none;
+      margin: 12px 0 16px;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 24px;
+      margin-bottom: 10px;
+      color: var(--text-secondary);
+    }
+
+    ul li::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 11px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+    }
+
+    ul.do-not-list li::before {
+      background: var(--text-muted);
+      width: 14px;
+      height: 1.5px;
+      border-radius: 0;
+      top: 14px;
+      left: 2px;
+    }
+
+    code {
+      background: var(--surface-container);
+      padding: 2px 7px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: "SF Mono", Menlo, Monaco, Consolas, "Roboto Mono", monospace;
+      color: var(--primary-light);
+      border: 1px solid var(--border-light);
+    }
+
+    /* ─── Contact block ─── */
+    .contact {
+      background: linear-gradient(135deg, var(--card) 0%, var(--surface-secondary) 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-2xl);
+      padding: 32px 32px;
+      margin-top: 56px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+      opacity: 0.18;
+      pointer-events: none;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--primary-light);
+      margin-bottom: 10px;
+    }
+
+    .contact h2 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .contact p {
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary);
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 600;
+      box-shadow: var(--shadow-primary);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      border-bottom: none;
+    }
+
+    .contact-email:hover {
+      transform: translateY(-1px);
+      border-bottom: none;
+    }
+
+    .contact-email svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      margin-top: 64px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-light);
+      font-size: 13px;
+      color: var(--text-muted);
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    footer .divider-dot {
+      margin: 0 8px;
+      opacity: 0.4;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 640px) {
+      .container { padding: 0 20px; }
+      .app-header { padding: 24px 0 16px; }
+      .hero { padding: 16px 0 32px; }
+      .summary { padding: 20px 22px; margin-bottom: 40px; }
+      .card { padding: 20px 22px; }
+      .contact { padding: 26px 22px; }
+      h2 { font-size: 22px; }
+      h2 .section-num { width: 26px; height: 26px; font-size: 12px; }
+      th, td { padding: 12px 14px; font-size: 13px; }
+      th:nth-child(3), td:nth-child(3) { display: none; }
+    }
+
+    @media (max-width: 380px) {
+      th, td { padding: 10px 12px; font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- ─── App header ─── -->
+    <header class="app-header">
+      <div class="brand-row">
+        <div class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 16l-4-4 1.41-1.41L11 14.17l5.59-5.59L18 10l-7 7z"/>
+          </svg>
+        </div>
+        <span class="brand-name">Reels Blocker</span>
+      </div>
+      <span class="status-pill">Privacy</span>
+    </header>
+
+    <!-- ─── Hero ─── -->
+    <div class="hero">
+      <span class="hero-eyebrow">Legal · Privacy Policy</span>
+      <h1>How Reels Blocker handles your data.</h1>
+      <p class="meta">
+        <span><strong>Effective:</strong> May 19, 2026</span>
+        <span><strong>Last updated:</strong> May 19, 2026</span>
+      </p>
+    </div>
+
+    <!-- ─── Summary callout ─── -->
+    <div class="summary">
+      <div class="summary-label">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+        At a glance
+      </div>
+      <p>
+        Reels Blocker collects <strong>no personal data</strong>. Everything runs entirely on your device. Nothing is sent to any server we operate. Nothing is shared with third parties. There is no account, no analytics, and no advertising SDK.
+      </p>
+    </div>
+
+    <!-- ─── What this app does ─── -->
+    <section>
+      <h2><span class="section-num">1</span>What this app does</h2>
+      <p>
+        Reels Blocker helps you avoid short-form video content (YouTube Shorts, Instagram Reels, Facebook Reels, TikTok) by detecting when such content appears on your screen and dismissing it. Detection happens locally on your device using Android's Accessibility Service.
+      </p>
+    </section>
+
+    <!-- ─── What we collect ─── -->
+    <section>
+      <h2><span class="section-num">2</span>What we collect</h2>
+      <p><strong>Nothing.</strong> Reels Blocker does not collect, store, or transmit any personal information whatsoever.</p>
+
+      <h3>What stays on your device</h3>
+      <p>The following data is created and stored only on your device, and never sent anywhere:</p>
+      <div class="data-table">
+        <table>
+          <thead>
+            <tr><th>Data</th><th>Purpose</th><th>Where</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Block count statistics<br><span style="color: var(--text-muted); font-weight: 400; font-size: 13px;">(today / week / total)</span></td>
+              <td>Displayed on the app's home screen</td>
+              <td>Local SharedPreferences</td>
+            </tr>
+            <tr>
+              <td>User preferences<br><span style="color: var(--text-muted); font-weight: 400; font-size: 13px;">(monitored apps, block mode)</span></td>
+              <td>Remembering settings between sessions</td>
+              <td>Local SharedPreferences</td>
+            </tr>
+            <tr>
+              <td>Recent debug events<br><span style="color: var(--text-muted); font-weight: 400; font-size: 13px;">(last 200 lines, plain text)</span></td>
+              <td>Self-diagnosis if blocking stops working</td>
+              <td>App's private storage</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>This data is wiped when you uninstall the app. We have no copy of it.</p>
+
+      <h3>What we do NOT collect</h3>
+      <p>We explicitly do not collect, log, or transmit:</p>
+      <ul class="do-not-list">
+        <li>Your name, email, phone number, or any contact information</li>
+        <li>Your device ID, advertising ID, IMEI, or any unique identifier</li>
+        <li>Your IP address or location</li>
+        <li>The websites you visit or the apps you use</li>
+        <li>The content of any screen the app processes</li>
+        <li>Crash reports tied to any user identity</li>
+        <li>Analytics, telemetry, or usage tracking</li>
+        <li>Anything else</li>
+      </ul>
+    </section>
+
+    <!-- ─── Accessibility permission ─── -->
+    <section>
+      <h2><span class="section-num">3</span>Accessibility Service permission</h2>
+      <p>
+        Reels Blocker requires Android's Accessibility Service permission to detect short-form video content on your screen. This permission is powerful — it can read screen content. We use it for <strong>one purpose only</strong>: to detect Shorts/Reels containers and dismiss them.
+      </p>
+      <p>Specifically, the Accessibility Service:</p>
+      <ul>
+        <li>Reads the UI tree of the currently-foregrounded app to look for Shorts/Reels container view IDs (e.g. YouTube's <code>reel_recycler</code> resource)</li>
+        <li><strong>Does NOT</strong> record what you watch, what you type, your passwords, or your messages</li>
+        <li><strong>Does NOT</strong> take screenshots</li>
+        <li><strong>Does NOT</strong> transmit anything off the device</li>
+        <li><strong>Does NOT</strong> control your device beyond pressing the BACK button when short-form content is detected</li>
+      </ul>
+      <p>
+        The list of apps it monitors is hard-coded into the app itself (YouTube, Instagram, Facebook, TikTok, and major Android browsers). It cannot be remotely configured because the app has no remote backend.
+      </p>
+    </section>
+
+    <!-- ─── Third-party services ─── -->
+    <section>
+      <h2><span class="section-num">4</span>Third-party services</h2>
+      <p>Reels Blocker does not use any third-party SDK that collects user data. We do not use:</p>
+      <ul class="do-not-list">
+        <li>Google Analytics, Firebase Analytics, or any other analytics service</li>
+        <li>AdMob or any advertising network</li>
+        <li>Social-media SDKs (Facebook SDK, etc.)</li>
+        <li>Any user-identifying telemetry</li>
+        <li>Any remote crash-reporting service</li>
+      </ul>
+    </section>
+
+    <!-- ─── Children's privacy ─── -->
+    <section>
+      <h2><span class="section-num">5</span>Children's privacy</h2>
+      <p>
+        Reels Blocker does not knowingly collect any data from anyone, including children under 13. Because we collect no personal data at all, the app is safe for users of all ages.
+      </p>
+    </section>
+
+    <!-- ─── Your rights ─── -->
+    <section>
+      <h2><span class="section-num">6</span>Your rights</h2>
+      <p>
+        Because we collect no personal data, there is nothing to access, correct, delete, or export. Uninstalling the app removes all local data.
+      </p>
+    </section>
+
+    <!-- ─── Changes ─── -->
+    <section>
+      <h2><span class="section-num">7</span>Changes to this policy</h2>
+      <p>
+        If we ever change this privacy policy in a meaningful way (for example, if we ever start collecting any data — which we do not currently plan to), we will update the "Last updated" date at the top and notify users via an in-app message before the change takes effect.
+      </p>
+    </section>
+
+    <!-- ─── Contact ─── -->
+    <div class="contact">
+      <div class="contact-label">Get in touch</div>
+      <h2>Questions about this policy?</h2>
+      <p>If you have any questions about how Reels Blocker handles data, we'd like to hear from you.</p>
+      <a href="mailto:carrotsoft.dev@gmail.com" class="contact-email">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        carrotsoft.dev@gmail.com
+      </a>
+    </div>
+
+    <!-- ─── Footer ─── -->
+    <footer>
+      This policy describes the actual behavior of Reels Blocker as of the "Last updated" date.
+      <br>
+      <span style="opacity: 0.7;">© 2026 Reels Blocker</span>
+      <span class="divider-dot">·</span>
+      <span style="opacity: 0.7;">Made for focus.</span>
+    </footer>
+
+  </div>
+</body>
+</html>
