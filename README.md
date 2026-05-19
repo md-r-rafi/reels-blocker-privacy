@@ -6,4 +6,4 @@ This repository hosts the privacy policy page for the [Reels Blocker](https://pl
 
 The policy describes what data the app collects (none), what permissions it uses (Android Accessibility Service, for one purpose only — detecting and dismissing short-form video content), and how the app behaves with respect to user privacy.
 
-For questions, contact: carrotsoft.dev@gmail.com
+For questions, contact: noorkin.dev@gmail.com
