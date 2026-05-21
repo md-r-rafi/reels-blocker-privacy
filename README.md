@@ -1,6 +1,6 @@
-# Reels Blocker — Privacy Policy
+# Noorlock — Privacy Policy
 
-This repository hosts the privacy policy page for the [Reels Blocker](https://play.google.com/store/apps/details?id=com.reelsblocker.app) Android app via GitHub Pages.
+This repository hosts the privacy policy page for the [Noorlock](https://play.google.com/store/apps/details?id=com.noorkin.noorlock) Android app via GitHub Pages.
 
 **Live URL:** https://md-r-rafi.github.io/reels-blocker-privacy/
 
